@@ -5,7 +5,5 @@ stdenv.mkDerivation rec {
   env = buildEnv { name = name; paths = buildInputs; };
   buildInputs = [
     python27Packages.docker_compose
-    cabal2nix
-    haskellPackages.cabal-install
   ];
 }
