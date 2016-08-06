@@ -1,14 +1,15 @@
 {  pkgs ? import <nixpkgs> {} }:
-with pkgs;
-stdenv.mkDerivation {
+with pkgs; with pkgs.haskellPackages;
+mkDerivation {
   pname = "clusterfuck";
   version = "0.1.0.0";
   src = ./.;
   isLibrary = true;
   isExecutable = true;
-  libraryHaskellDepends = [ base ];
-  executableHaskellDepends = [ base ];
-  testHaskellDepends = [ base ];
+  buildDepends = [ cabal-install ];
+  libraryHaskellDepends = [ haskellPackages.base ];
+  executableHaskellDepends = [ haskellPackages.base ];
+  testHaskellDepends = [ haskellPackages.base ];
   description = "A basic compute node.";
-  license = stdenv.lib.licenses.bsd3;
+  license = stdenv.lib.licenses.bsd3.shortName;
 }

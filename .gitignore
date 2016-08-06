@@ -1,2 +1,5 @@
 *~
 *.stack-work
+
+# nix-build output
+*/result
