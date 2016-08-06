@@ -6,7 +6,7 @@ mkDerivation {
   src = ./.;
   isLibrary = true;
   isExecutable = true;
-  buildDepends = [ cabal-install ];
+  buildDepends = [ cabal-install stack ];
   libraryHaskellDepends = [ haskellPackages.base ];
   executableHaskellDepends = [ haskellPackages.base ];
   testHaskellDepends = [ haskellPackages.base ];
