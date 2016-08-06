@@ -1,3 +1,3 @@
-
+# Describing the elements of the cluster
 node:
   image: clusterfuck-node
