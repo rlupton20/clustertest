@@ -1,5 +1,3 @@
 # Describing the elements of the cluster
-version: '2'
-
 node:
   image: clusterfuck-node
