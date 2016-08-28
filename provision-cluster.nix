@@ -1,5 +1,5 @@
 #!/usr/bin/env nix-shell
-#!nix-shell -i sh -p python27Packages.docker_compose
+#!nix-shell -i sh 
 
 # First build the image
 nix-build node.nix -A image
