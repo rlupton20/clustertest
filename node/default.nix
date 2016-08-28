@@ -8,7 +8,7 @@ mkDerivation {
   isExecutable = true;
   buildDepends = [ cabal-install stack ];
   libraryHaskellDepends = [ haskellPackages.base ];
-  executableHaskellDepends = [ haskellPackages.base ];
+  executableHaskellDepends = [ haskellPackages.base haskellPackages.distributed-process haskellPackages.distributed-process-simplelocalnet];
   testHaskellDepends = [ haskellPackages.base ];
   description = "A basic compute node.";
   license = stdenv.lib.licenses.bsd3.shortName;

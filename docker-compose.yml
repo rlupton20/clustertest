@@ -7,7 +7,6 @@ services:
   node:
     image: clusterfuck-node
 
-
   master-node:
     image: clusterfuck-node
     command: "clusterfuck-exe master 0.0.0.0 5000"
