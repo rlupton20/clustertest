@@ -1,3 +1,7 @@
 # Describing the elements of the cluster
 node:
   image: clusterfuck-node
+
+master:
+  image: clusterfuck-node
+  command: "clusterfuck-exe master 0.0.0.0 5000" 

@@ -1,20 +1,29 @@
 { pkgs ? import <nixpkgs> {} , node }:
+let
+  minimalDocker = {
+    imports = [ <nixpkgs/nixos/modules/profiles/minimal.nix> ];
+    boot.isContainer = true;
+    environment.etc.machine-id.text = "node";
+  };
+
+  eval = import <nixos/lib/eval-config.nix> {
+    modules = [
+      minimalDocker
+    ];
+  };
+
+  system = eval.config.system;
+   
+in
 
 with pkgs;
 dockerTools.buildImage {
   name = "clusterfuck-node";
-  # Don't use another image a base, just build
-  # what is necessary to run
-  runAsRoot = ''
-    #!${stdenv.shell}
-    ${dockerTools.shadowSetup}
-    mkdir /data
-  '';
 
-  contents = [ node ];
-
+  contents = 
+    symlinkJoin "node-contents" [ node system.build.etc system.path ];
+  
   config = {
-    Cmd = [ "clusterfuck-exe" ];
-    WorkingDir = "/data";
+    Cmd = [ "clusterfuck-exe" "slave" "0.0.0.0" "5000" ];
     };
 }
