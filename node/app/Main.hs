@@ -11,6 +11,7 @@ master :: Backend -> [NodeId] -> Process ()
 master backend slaves = do
   -- log list of slaves to stderr
   liftIO . hPutStrLn stderr  $ "MASTER :: Found slaves: " ++ show slaves
+  liftIO . hPutStrLn stderr $ "MASTER :: Total slaves : " ++ (show $ length slaves)
   -- Terminate all the slaves
   terminateAllSlaves backend
 
