@@ -5,5 +5,6 @@ stdenv.mkDerivation rec {
   env = buildEnv { name = name; paths = buildInputs; };
   buildInputs = [
     unstable.python27Packages.docker_compose
+    bridge-utils
   ];
 }

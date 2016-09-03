@@ -6,7 +6,10 @@ services:
 
   node:
     image: clusterfuck-node
+    command: "sh -c \"hostname -i | xargs -I {} clusterfuck-exe slave {} 5000 \""
 
   master-node:
     image: clusterfuck-node
-    command: "clusterfuck-exe master 0.0.0.0 5000"
+    command: "sh -c \"hostname -i | xargs -I {} clusterfuck-exe master {} 5000 \""
+    depends_on:
+      - node
