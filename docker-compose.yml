@@ -5,11 +5,11 @@ version: '2'
 services:
 
   node:
-    image: clusterfuck-node
-    command: "sh -c \"hostname -i | xargs -I {} clusterfuck-exe slave {} 5000 \""
+    image: clustertest-node
+    command: "sh -c \"hostname -i | xargs -I {} clustertest-exe slave {} 5000 \""
 
   master-node:
-    image: clusterfuck-node
-    command: "sh -c \"hostname -i | xargs -I {} clusterfuck-exe master {} 5000 \""
+    image: clustertest-node
+    command: "sh -c \"hostname -i | xargs -I {} clustertest-exe master {} 5000 \""
     depends_on:
       - node

@@ -1,4 +1,4 @@
-clusterfuck - a cluster computing test rig
+clustertest - a cluster computing test rig
 ==========================================
 
 

@@ -6,7 +6,7 @@ let
     environment.etc.machine-id.text = "node";
   };
 
-  eval = import <nixos/lib/eval-config.nix> {
+  eval = import <nixpkgs/nixos/lib/eval-config.nix> {
     modules = [
       minimalDocker
     ];
@@ -18,12 +18,15 @@ in
 
 with pkgs;
 dockerTools.buildImage {
-  name = "clusterfuck-node";
+  name = "clustertest-node";
 
   contents = 
-    symlinkJoin "node-contents" [ node system.build.etc system.path ];
+    symlinkJoin {
+      name = "node-contents";
+      paths = [ node system.build.etc system.path ];
+  };
   
   config = {
-    Cmd = [ "clusterfuck-exe" "slave" "0.0.0.0" "5000" ];
+    Cmd = [ "clustertest-exe" "slave" "0.0.0.0" "5000" ];
     };
 }

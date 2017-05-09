@@ -1,7 +1,7 @@
 {  pkgs ? import <nixpkgs> {} }:
 with pkgs; with pkgs.haskellPackages;
 mkDerivation {
-  pname = "clusterfuck";
+  pname = "clustertest";
   version = "0.1.0.0";
   src = ./.;
   isLibrary = true;
