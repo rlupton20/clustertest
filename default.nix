@@ -4,7 +4,9 @@ stdenv.mkDerivation rec {
   name = "Clustertest";
   env = buildEnv { name = name; paths = buildInputs; };
   buildInputs = [
-    unstable.python27Packages.docker_compose
+    python27Packages.docker_compose
     bridge-utils
+    stack
+    ghc
   ];
 }
